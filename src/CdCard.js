@@ -1,61 +1,25 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-// import clsx from 'clsx';
-// import Card from '@material-ui/core/Card';
-// import CardHeader from '@material-ui/core/CardHeader';
-// import CardContent from '@material-ui/core/CardContent';
-// import CardActions from '@material-ui/core/CardActions';
-// import Collapse from '@material-ui/core/Collapse';
-// import Avatar from '@material-ui/core/Avatar';
-// import IconButton from '@material-ui/core/IconButton';
-// import Typography from '@material-ui/core/Typography';
-import { green } from '@material-ui/core/colors';
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import React from "react";
+ import { Link } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
-  card: {
-    maxWidth: 345,
-  },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
-  expand: {
-    transform: 'rotate(0deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  },
-  expandOpen: {
-    transform: 'rotate(180deg)',
-  },
-  avatar: {
-    backgroundColor: green[500],
-  },
-  heart: {
-    backgroundColor: red,
-  },
-}));
+import "./App.css";
 
-export default function CdCard(props) {
-    
-  const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+
+const CdCard = props => {
   const { data } = props;
-//   console.log(data);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  console.log(props);
+  if (data  === undefined) {
+    return <div>Loading..</div>;
+  } else {
+    return (
+      <Link to={`/cd/${data.id}`}>
+      <div className="details"  id={data.id}>
+          {data.title}
+        <img src={data.thumb} alt="img disc"/>
   
-  return (
-    // {data.forEach(result => {
-      <li className="hola" >{data.title}
-         
-      {data.style}
-    </li>
-  );
-}
+      </div>
+      </Link>
+    );
+  }
+};
+
+export default CdCard;
