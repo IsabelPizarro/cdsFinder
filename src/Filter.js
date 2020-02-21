@@ -5,7 +5,7 @@ import CdList from './CdList';
 
 export default function Filter(props) {
     
-    const {handleInput, handleSubmit, value,} = props;
+    const {handleInput, handleSubmit, value, discos} = props;
 
     
 
@@ -15,7 +15,7 @@ export default function Filter(props) {
     <form className="prueba" noValidate autoComplete="off">
       <div className="containerFilter">
         <input
-          id="standard-basic"s
+          id="standard-basic"
           className="tal"
           label="Find your cd"
           margin="normal"
@@ -26,7 +26,7 @@ export default function Filter(props) {
         <div className={"contenedor"}>
     
         <button variant="outlined" color="secondary" onClick={handleSubmit} value={value}>
-        <Link to="/List">
+        <Link to="/">
           
 
       Search

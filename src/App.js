@@ -80,8 +80,7 @@ class App extends Component {
          <button variant="outlined" color="secondary" onClick={this.handlePage}>
       Next
     </button>
-    <CdList  data={discos}
-              />
+    <CdList  data={discos}  />
         </div>
         
        

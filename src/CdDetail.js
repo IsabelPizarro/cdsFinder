@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { Link } from "react-router-dom";
 // import { Link } from 'react-router-dom';
 
 const CdDetail = (props) => {
@@ -19,6 +21,7 @@ const CdDetail = (props) => {
     // console.log(typeof(CdDetail));
     console.log(cosas[0]);
     // console.log(cosas[0].title);
+    
    
 
     return (
@@ -33,6 +36,7 @@ const CdDetail = (props) => {
     {CdDetail[3]}
     
                 Detallito aqúi
+                <Link to="/List">Back </Link>
          
             </div>
      
