@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       discos:[],
       value:"",
-      page:0,
+      page:1,
      
     };
     this.handleInput = this.handleInput.bind(this);
@@ -74,28 +74,25 @@ class App extends Component {
            handleInput={this.handleInput}
           handleSubmit={this.handleSubmit}
           value={value}
+          discos={discos}
           
         />
          <button variant="outlined" color="secondary" onClick={this.handlePage}>
       Next
     </button>
+    <CdList  data={discos}
+              />
         </div>
         
-        <div className="cardsContainer">
-           
-
-           
-              <CdList data={discos} /> 
-          
-        </div>
+       
         <Switch>
-            <Route  exact path="/List"
-            render={() =>
+            <Route  path ="/List"
+            Component={
               <CdList  data={discos}
               />
             } />
             
-            <Route path="/cd/:id" render={(routerProps)=>{return (
+            <Route path="/cd/:id" exact render={(routerProps)=>{return (
             <CdDetail
             routerProps={routerProps}
             data={discos}
