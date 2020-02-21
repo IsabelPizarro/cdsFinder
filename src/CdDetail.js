@@ -10,17 +10,16 @@ const CdDetail = (props) => {
     console.log(routerProps)
     const { id } = routerProps.match.params;
     const CdId = parseInt(id);
-    // console.log(id);
+    
 
     const CdDetail = data.find(item => item.id === CdId);
     cosas.push(CdDetail);
     for(var i in CdDetail){
         console.log(i+": "+ CdDetail[i]);
     }
-    // console.log(Object.keys(CdDetail));
-    // console.log(typeof(CdDetail));
+
     console.log(cosas[0]);
-    // console.log(cosas[0].title);
+
     
    
 

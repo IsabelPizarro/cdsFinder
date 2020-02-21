@@ -5,6 +5,8 @@ import Filter from "./Filter";
 import Loader from './Loader';
 import { Link, Route, Switch } from 'react-router-dom';
 import CdDetail from './CdDetail';
+import Favorites from "./Favorites";
+import Header from "./Header";
 
 
 class App extends Component {
@@ -19,7 +21,8 @@ class App extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
     this.handlePage=this.handlePage.bind(this);
-  
+    this.handleFavs=this.handleFavs.bind(this);
+   
   }
   handlePage(e){
      e.preventDefault();
@@ -40,58 +43,55 @@ class App extends Component {
 
 
   handleSubmit(e){
-    
-  
-    //vaciar el array   aqui
     e.preventDefault();
     this.setState({ discos: [] });
-    // console.log(this.state.page);
-
-
     const headers = { 'Authorization': 'Discogs token=WZEaJGNygEXhxzmpmOLGcPDnvYdZBHokExnJspHN' }
     fetch(`https://api.discogs.com/database/search?q=${this.state.value}&per_page=30&page=${this.state.page}`, { headers }).then(res => res.json()).then(data =>
      { 
-  
           this.setState({ discos: data.results });  
            
          }
         );
   
         }
+   handleFavs(){
+          console.log("cogefavorito");
+        }
 
   
   render() {
 
      const {value, discos}=this.state;
-     console.log(discos);
+     
     
     return (
       <div className="App">
-        <div className="App-header">
-          <h2>Finder Discogs</h2>
+         <React.Fragment>
+        <Header/>
         
-          <Filter
+          {/* <Filter
            handleInput={this.handleInput}
           handleSubmit={this.handleSubmit}
           value={value}
           discos={discos}
-          
-        />
-         <button variant="outlined" color="secondary" onClick={this.handlePage}>
-      Next
-    </button>
-    <CdList  data={discos}  />
-        </div>
-        
+        /> */}
        
+    
+    </React.Fragment>
+        
         <Switch>
-            <Route  path ="/List"
-            Component={
-              <CdList  data={discos}
-              />
-            } />
+          <Route  path="/Favs" render={Favorites}/>
+            <Route exact path ="/List"
+            render={
+              ()=>{return (
+                <CdList  data={discos} handleFavs={this.handleFavs}   handleInput={this.handleInput}
+                handleSubmit={this.handleSubmit} handlePage={this.handlePage}
+                value={value}
+                />
+              );
+              }}/>
             
-            <Route path="/cd/:id" exact render={(routerProps)=>{return (
+            <Route path="/cd/:id"  render={(routerProps)=>{return (
             <CdDetail
             routerProps={routerProps}
             data={discos}
@@ -99,10 +99,6 @@ class App extends Component {
           );
           }}/>
           </Switch>
-     
-       
-       
-         
       </div>
       
     );
