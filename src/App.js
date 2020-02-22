@@ -16,12 +16,15 @@ class App extends Component {
       discos:[],
       value:"",
       page:1,
+      favorites:"",
+      favoritesCompleted:[],
      
     };
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
     this.handlePage=this.handlePage.bind(this);
     this.handleFavs=this.handleFavs.bind(this);
+
    
   }
   handlePage(e){
@@ -54,38 +57,63 @@ class App extends Component {
         );
   
         }
-   handleFavs(){
-          console.log("cogefavorito");
+   handleFavs(e){
+     e.preventDefault();
+     debugger;
+    //  let favs;
+     
+     console.log(e.currentTarget.className);
+     const newFav=e.currentTarget.className;
+    
+
+     { 
+      this.setState({ favorites: [...this.state.favorites, newFav]});  
+       
+     }
+     for(var i in this.state.favorites){
+      const CdFav = this.state.discos.find(item => item.id === parseInt(this.state.favorites[i]));
+          console.log( CdFav);
+          { 
+            this.setState({ favoritesCompleted: [...this.state.favorites, CdFav]});  
+             
+           }
+console.log(this.state.favoritesCompleted);
+          
+      }
         }
 
   
   render() {
 
-     const {value, discos}=this.state;
+     const {value, discos, favorites}=this.state;
      
     
     return (
       <div className="App">
          <React.Fragment>
-        <Header/>
-        
-          {/* <Filter
+        <Header />
+            <Filter
            handleInput={this.handleInput}
           handleSubmit={this.handleSubmit}
           value={value}
-          discos={discos}
-        /> */}
+          handlePage={this.handlePage}
+          
+        />
        
     
     </React.Fragment>
         
         <Switch>
-          <Route  path="/Favs" render={Favorites}/>
+          <Route  path="/Favs" render={
+              ()=>{return (
+                <Favorites favorites={favorites} data={discos}
+                />
+              );
+              }}/>
             <Route exact path ="/List"
             render={
               ()=>{return (
-                <CdList  data={discos} handleFavs={this.handleFavs}   handleInput={this.handleInput}
-                handleSubmit={this.handleSubmit} handlePage={this.handlePage}
+                <CdList  data={discos} handleFavs={this.handleFavs}   
                 value={value}
                 />
               );

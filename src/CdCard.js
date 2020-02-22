@@ -6,8 +6,6 @@ import "./App.css";
 export default function CdCard(props) {
   const { data, handleFavs } = props;
 
- 
-
     return (
   
       <div className="details"  id={data.id}>
@@ -18,7 +16,7 @@ export default function CdCard(props) {
       
       </Link>
       
-      <button onClick={handleFavs}>Add Favs</button>
+      <button onClick={handleFavs} className={data.id}>Add Favs</button>
       
       </div>
  

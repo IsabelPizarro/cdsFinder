@@ -14,11 +14,11 @@ const CdDetail = (props) => {
 
     const CdDetail = data.find(item => item.id === CdId);
     cosas.push(CdDetail);
-    for(var i in CdDetail){
-        console.log(i+": "+ CdDetail[i]);
-    }
+    // for(var i in CdDetail){
+    //     console.log(i+": "+ CdDetail[i]);
+    // }
 
-    console.log(cosas[0]);
+    // console.log(cosas[0]);
 
     
    

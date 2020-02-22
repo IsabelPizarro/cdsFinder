@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 export default function Filter(props) { 
-    const {handleInput, handleSubmit, value} = props;
+    const {handleInput, handleSubmit, value, handlePage} = props;
   return (
     <form className="prueba" noValidate autoComplete="off">
       <div className="containerFilter">
@@ -19,6 +19,9 @@ export default function Filter(props) {
             <button variant="outlined" color="secondary" onClick={handleSubmit} value={value}>
             <Link to="/List">Search</Link> 
             </button>
+            <button variant="outlined" color="secondary" onClick={handlePage}>
+      Next
+    </button>
         </div>
       </div>
     </form>
