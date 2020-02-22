@@ -17,7 +17,7 @@ class App extends Component {
       value:"",
       page:1,
       favorites:"",
-      favoritesCompleted:[],
+    
      
     };
     this.handleInput = this.handleInput.bind(this);
@@ -59,28 +59,16 @@ class App extends Component {
         }
    handleFavs(e){
      e.preventDefault();
-     debugger;
-    //  let favs;
-     
-     console.log(e.currentTarget.className);
      const newFav=e.currentTarget.className;
-    
 
-     { 
-      this.setState({ favorites: [...this.state.favorites, newFav]});  
-       
-     }
-     for(var i in this.state.favorites){
-      const CdFav = this.state.discos.find(item => item.id === parseInt(this.state.favorites[i]));
-          console.log( CdFav);
+    const CdFav = this.state.discos.find(item => item.id === parseInt(newFav));
           { 
-            this.setState({ favoritesCompleted: [...this.state.favorites, CdFav]});  
+            this.setState({ favorites: [...this.state.favorites, CdFav]});  
              
            }
-console.log(this.state.favoritesCompleted);
           
       }
-        }
+        
 
   
   render() {
@@ -92,13 +80,7 @@ console.log(this.state.favoritesCompleted);
       <div className="App">
          <React.Fragment>
         <Header />
-            <Filter
-           handleInput={this.handleInput}
-          handleSubmit={this.handleSubmit}
-          value={value}
-          handlePage={this.handlePage}
-          
-        />
+      
        
     
     </React.Fragment>
@@ -106,8 +88,7 @@ console.log(this.state.favoritesCompleted);
         <Switch>
           <Route  path="/Favs" render={
               ()=>{return (
-                <Favorites favorites={favorites} data={discos}
-                />
+                <Favorites favorites={favorites} />
               );
               }}/>
             <Route exact path ="/List"
@@ -115,6 +96,10 @@ console.log(this.state.favoritesCompleted);
               ()=>{return (
                 <CdList  data={discos} handleFavs={this.handleFavs}   
                 value={value}
+                handleInput={this.handleInput}
+                handleSubmit={this.handleSubmit}
+                value={value}
+                handlePage={this.handlePage}
                 />
               );
               }}/>
