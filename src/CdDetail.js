@@ -6,19 +6,15 @@ import { Link } from "react-router-dom";
 const CdDetail = (props) => {
     let cosas=[]
     const { routerProps, data } = props;
-    console.log(data);
-    console.log(routerProps)
+    // console.log(data);
+    // console.log(routerProps)
     const { id } = routerProps.match.params;
     const CdId = parseInt(id);
     
 
     const CdDetail = data.find(item => item.id === CdId);
     cosas.push(CdDetail);
-    // for(var i in CdDetail){
-    //     console.log(i+": "+ CdDetail[i]);
-    // }
-
-    // console.log(cosas[0]);
+    
 
     
    

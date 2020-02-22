@@ -80,7 +80,13 @@ class App extends Component {
       <div className="App">
          <React.Fragment>
         <Header />
-      
+            <Filter
+           handleInput={this.handleInput}
+          handleSubmit={this.handleSubmit}
+          value={value}
+          handlePage={this.handlePage}
+          
+        />
        
     
     </React.Fragment>
@@ -96,10 +102,6 @@ class App extends Component {
               ()=>{return (
                 <CdList  data={discos} handleFavs={this.handleFavs}   
                 value={value}
-                handleInput={this.handleInput}
-                handleSubmit={this.handleSubmit}
-                value={value}
-                handlePage={this.handlePage}
                 />
               );
               }}/>
