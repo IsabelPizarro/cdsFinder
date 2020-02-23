@@ -22,18 +22,18 @@ const CdDetail = (props) => {
     return (
         
             
-            <div>
-                <p>{id}</p>
-    
-    <p>{cosas[0].title}</p>
-    <p>{cosas[0].year}</p>
-    <img src={cosas[0].thumb}/>
-    {CdDetail[3]}
-    
-                Detallito aqúi
-                <Link to="/List">Back </Link>
-         
-            </div>
+     <div>
+            <p>{id}</p>
+            
+            <p>{cosas[0].title}</p>
+            <p>{cosas[0].year}</p>
+            <img src={cosas[0].thumb}/>
+            {CdDetail[3]}
+            
+          Detallito aqúi
+                        <Link to="/List">Back </Link>
+                
+ </div>
      
     );
 }

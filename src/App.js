@@ -23,6 +23,7 @@ class App extends Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit=this.handleSubmit.bind(this);
     this.handlePage=this.handlePage.bind(this);
+    this.handlePageBack=this.handlePageBack.bind(this);
     this.handleFavs=this.handleFavs.bind(this);
 
    
@@ -35,9 +36,19 @@ class App extends Component {
     this.handleSubmit(e);
     console.log("LO PILLA");
   }
+  handlePageBack(e){
+    e.preventDefault();
+    console.log(this.state.page);
+    this.setState({ page: this.state.page-1});
+    
+    this.handleSubmit(e);
+    console.log("LO PILLA");
+
+  }
 
   handleInput(event) {
     event.preventDefault();
+    this.setState({ page: "" });
      
     const lookFor = event.currentTarget.value;
     this.setState({ value: lookFor });
@@ -85,6 +96,7 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
           value={value}
           handlePage={this.handlePage}
+          handlePageBack={this.handlePageBack}
           
         />
        

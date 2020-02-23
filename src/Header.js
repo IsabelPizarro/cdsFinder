@@ -9,8 +9,7 @@ const Header = props => {
 		<header className="appHeader">
 			<h1 className="appTitle">Buscador de Discos.</h1>
             <p> <Link to="/Favs">
-            Tus Favoritos
-		
+            <a className="favoritesLink">Tus Favoritos</a>
             </Link></p>
 		</header>
 	);

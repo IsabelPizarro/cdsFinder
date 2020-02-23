@@ -10,18 +10,20 @@ const Favorites = props => {
   console.log(favorites);
 
   console.log(favorites[0].title);
-   for(var i in favorites){
-        console.log(i+": "+ favorites[i].title);
-    }
+  //  for(var i in favorites){
+  //       console.log(i+": "+ favorites[i].title);
+  //   }
 
 
     
     return (
+      // si fav vacio devolver aunno hay nada 
   
       <div className="favs"  >
           Favoritos :)
           <ul>
-          {favorites
+          {(favorites[0]==="") ? <p>no hay nada aún</p>  :
+          favorites
 					.map((fav) => {
 						return (
 							<li className="pokemon" key={fav.id}>
