@@ -6,21 +6,23 @@ import CdCard from "./CdCard";
 const CdList = props => {
   const {data,handleFavs}=props;
   return (
+    <main>
     <div className="cardsContainer">
     
-    <ul className="ulList">
-        <li >
+    <div className="list">
+        
               
     
           {data.map(dat=>
            <CdCard data={dat} handleFavs={handleFavs}/>
             
             )}
-        </li>
+        
    
      
-    </ul>
     </div>
+    </div>
+    </main>
   );
 };
 

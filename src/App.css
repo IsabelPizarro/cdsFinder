@@ -1,8 +1,22 @@
+body {
+  margin: 0;
+  background-color: grey;
+  /* height: 100vh; */
+  box-sizing: border-box;
+ 
+}
+
 .App {
   text-align: center;
   background-color: grey;
   padding: 30px;
   height: 100%;
+  min-height: 100vh;
+  display: block;
+}
+.root{
+  height: 100%;
+  /* height: 100vh; */
 }
 
 
@@ -16,7 +30,8 @@
 .favoritesLink{
   padding: 10px;
   border: black solid 2px;
-  color: brown;
+  border-radius: 10px;
+  color: black;
 }
 /* //formulario */
 .form{
@@ -37,22 +52,34 @@
   justify-content: space-around;
 }
 
-
-.ulList{
+.main {
+  background-color: grey;
   display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
-  padding: 0;
-  list-style: none;
+  grid-template-columns: 300px auto;
+  margin-top: 30px;
+}
+
+.cardsContainer {
+  margin: 40px 30px 40px 30px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list{
+  display: flex;
+  flex-wrap: wrap;
  list-style: none;
  margin: 20px;
 }
-.cardsContainer {
-  margin: 40px 30px 40px 30px;
-  /* align-items: center; */
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+.singleCard{
+  margin:15px;
+  padding: 10px;
+
+}
+.singleCard:hover {
+  border: 3px solid orange;
+  background-color: orange;
 }
 .containerFilter {
   margin: auto;

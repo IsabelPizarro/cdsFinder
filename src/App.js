@@ -90,15 +90,12 @@ class App extends Component {
     return (
       <div className="App">
          <React.Fragment>
-        <Header />
-            <Filter
-           handleInput={this.handleInput}
+        <Header  handleInput={this.handleInput}
           handleSubmit={this.handleSubmit}
           value={value}
           handlePage={this.handlePage}
-          handlePageBack={this.handlePageBack}
-          
-        />
+          handlePageBack={this.handlePageBack} />
+       
        
     
     </React.Fragment>

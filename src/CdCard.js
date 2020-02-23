@@ -14,10 +14,10 @@ const { Meta } = Card;
 
     return (
      
-       <div className="details"  id={data.id}>
+       <div className="singleCard"  id={data.id}>
        <Link to={`/cd/${data.id}`}>
       <Card
-    style={{ width: 150 }}
+    style={{ width: 180 }}
     cover={
       <img
         alt="example"
