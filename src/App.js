@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css'
 import CdList from './CdList';
-import Loader from './Loader';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import CdDetail from './CdDetail';
 import Favorites from "./Favorites";
 import Header from "./Header";
@@ -62,12 +61,13 @@ class App extends Component {
 
    handleFavs(e){
     e.preventDefault();
+    alert("Guardado en favoritos");
     const newFav=e.currentTarget.className;
     const CdFav = this.state.discos.find(item => item.id === parseInt(newFav));
-          { 
+          
             this.setState({ favorites: [...this.state.favorites, CdFav]});  
              
-           }
+           
           
       }
         

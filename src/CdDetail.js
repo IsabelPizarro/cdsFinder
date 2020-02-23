@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 
 const CdDetail = (props) => {
-  debugger;
     let detail=[]
     const { routerProps, data } = props;
     const { id } = routerProps.match.params;
@@ -17,7 +16,7 @@ const CdDetail = (props) => {
             <p>{detail[0].title}</p>
             <p>{detail[0].country}</p>
             <p>{detail[0].year}</p>
-            <img src={detail[0].thumb}/>
+            <img src={detail[0].thumb} alt={id}/>
      <ul className="ulFormats"><p>Formato:</p>
       {(detail[0].format==null) ? <p>No hay ningún formato disponible</p>  :
       detail[0].format.map(form=><li>{form}</li>)}</ul> 

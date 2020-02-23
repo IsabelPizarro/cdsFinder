@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Filter  from "./Filter";
-import Favorites from './Favorites';
 
 const Header = props => {
 	const {handleInput, handleSubmit, value, handlePage, handlePageBack} = props;
