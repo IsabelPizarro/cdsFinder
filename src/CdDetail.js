@@ -6,8 +6,6 @@ import { Link } from "react-router-dom";
 const CdDetail = (props) => {
     let cosas=[]
     const { routerProps, data } = props;
-    // console.log(data);
-    // console.log(routerProps)
     const { id } = routerProps.match.params;
     const CdId = parseInt(id);
     
@@ -22,16 +20,19 @@ const CdDetail = (props) => {
     return (
         
             
-     <div>
+     <div className="containerDetails">
             <p>{id}</p>
-            
+            <p>{cosas[0].style}</p>
             <p>{cosas[0].title}</p>
+            <p>{cosas[0].country}</p>
             <p>{cosas[0].year}</p>
             <img src={cosas[0].thumb}/>
-            {CdDetail[3]}
+    <ul className="ulFormats"><p>Formato:</p>
+      {cosas[0].format.map(form=><li>{form}</li>)}</ul>
             
-          Detallito aqúi
-                        <Link to="/List">Back </Link>
+            <div>
+              <Link to="/List">Volver al listado </Link>
+            </div>
                 
  </div>
      

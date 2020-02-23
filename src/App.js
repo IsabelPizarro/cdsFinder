@@ -66,7 +66,7 @@ class App extends Component {
            
          }
         );
-  
+ 
         }
    handleFavs(e){
      e.preventDefault();
@@ -85,6 +85,7 @@ class App extends Component {
   render() {
 
      const {value, discos, favorites}=this.state;
+     console.log(this.state.discos);
      
     
     return (

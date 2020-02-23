@@ -8,18 +8,10 @@ const CdList = props => {
   return (
     <main>
     <div className="cardsContainer">
-    
-    <div className="list">
-        
-              
-    
+    <div className="list">        
           {data.map(dat=>
-           <CdCard data={dat} handleFavs={handleFavs}/>
-            
+           <CdCard data={dat} handleFavs={handleFavs}/> 
             )}
-        
-   
-     
     </div>
     </div>
     </main>

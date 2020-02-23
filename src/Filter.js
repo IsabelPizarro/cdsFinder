@@ -17,7 +17,7 @@ export default function Filter(props) {
       <div className="containerFilter">
    
         <Input
-        placeholder="Nirvana"
+        placeholder="The Beatles"
         
           id="standard-basic"
           className="tal"

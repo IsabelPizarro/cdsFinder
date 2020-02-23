@@ -15,6 +15,7 @@ const { Meta } = Card;
     return (
      
        <div className="singleCard"  id={data.id}>
+         <div className="divHover">
        <Link to={`/cd/${data.id}`}>
       <Card
     style={{ width: 180 }}
@@ -26,33 +27,17 @@ const { Meta } = Card;
     }
    
   >
-    <Meta title={data.title} description={data.style} />
+    <Meta title={data.title} description={data.year} />
   </Card>
   </Link>
+  </div>
   <div>
- 
-       
+  
       
       <button onClick={handleFavs} className={data.id}> <Icon type="heart" key="ellipsis" /></button>
       </div>
   </div>
-//       <div className="details"  id={data.id}>
-//           <Link to={`/cd/${data.id}`}>
-       
-//           {data.title}
-//         <img src={data.thumb} alt="img disc"/>
-      
-//       </Link>
-//       <div>
-  
 
-//   <Button type="danger">Danger</Button>
- 
-// </div>
-      
-//      
-      
-//       </div>
  
     );
   
