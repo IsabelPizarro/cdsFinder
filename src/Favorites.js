@@ -1,17 +1,12 @@
 import React from "react";
- import { Link } from "react-router-dom";
- import Loader from './Loader';
+import { Link } from "react-router-dom";
 import "./App.css";
 
 
 const Favorites = props => {
-
   const {favorites}=props;
-  console.log(favorites);
-
+ 
     return (
-     
-  
       <div className="favs"  >
           <h2>Favoritos</h2>
           <ul>

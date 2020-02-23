@@ -9,7 +9,7 @@ const CdList = props => {
     <main>
     <div className="cardsContainer">
     <div className="list">        
-          {
+          {(data==="") ? <Loader/>  :
           data.map(dat=>
            <CdCard data={dat} handleFavs={handleFavs}/> 
             )}
