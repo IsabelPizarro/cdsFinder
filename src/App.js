@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'
 import CdList from './CdList';
-import Filter from "./Filter";
 import Loader from './Loader';
 import { Link, Route, Switch } from 'react-router-dom';
 import CdDetail from './CdDetail';
@@ -32,29 +31,22 @@ class App extends Component {
      e.preventDefault();
     console.log(this.state.page);
     this.setState({ page: this.state.page+1});
-    
     this.handleSubmit(e);
-    console.log("LO PILLA");
   }
+
   handlePageBack(e){
     e.preventDefault();
     console.log(this.state.page);
-    this.setState({ page: this.state.page-1});
-    
+    this.setState({ page: this.state.page-1}); 
     this.handleSubmit(e);
-    console.log("LO PILLA");
-
   }
 
   handleInput(event) {
     event.preventDefault();
-    this.setState({ page: "" });
-     
+    this.setState({ page: "" }); 
     const lookFor = event.currentTarget.value;
     this.setState({ value: lookFor });
   }
-
-
 
   handleSubmit(e){
     e.preventDefault();
@@ -66,12 +58,11 @@ class App extends Component {
            
          }
         );
- 
-        }
-   handleFavs(e){
-     e.preventDefault();
-     const newFav=e.currentTarget.className;
+       }
 
+   handleFavs(e){
+    e.preventDefault();
+    const newFav=e.currentTarget.className;
     const CdFav = this.state.discos.find(item => item.id === parseInt(newFav));
           { 
             this.setState({ favorites: [...this.state.favorites, CdFav]});  
@@ -83,11 +74,8 @@ class App extends Component {
 
   
   render() {
-
      const {value, discos, favorites}=this.state;
-     console.log(this.state.discos);
-     
-    
+   
     return (
       <div className="App">
          <React.Fragment>
@@ -96,10 +84,7 @@ class App extends Component {
           value={value}
           handlePage={this.handlePage}
           handlePageBack={this.handlePageBack} />
-       
-       
-    
-    </React.Fragment>
+         </React.Fragment>
         
         <Switch>
           <Route  path="/Favs" render={
@@ -117,10 +102,10 @@ class App extends Component {
               }}/>
             
             <Route path="/cd/:id"  render={(routerProps)=>{return (
-            <CdDetail
-            routerProps={routerProps}
-            data={discos}
-            />
+                <CdDetail
+                routerProps={routerProps}
+                data={discos}
+                />
           );
           }}/>
           </Switch>

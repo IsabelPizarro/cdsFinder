@@ -1,6 +1,6 @@
 import React from "react";
 import CdCard from "./CdCard";
-
+import Loader from "./Loader";
 
 
 const CdList = props => {
@@ -9,7 +9,8 @@ const CdList = props => {
     <main>
     <div className="cardsContainer">
     <div className="list">        
-          {data.map(dat=>
+          {
+          data.map(dat=>
            <CdCard data={dat} handleFavs={handleFavs}/> 
             )}
     </div>

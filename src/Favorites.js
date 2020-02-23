@@ -13,7 +13,7 @@ const Favorites = props => {
      
   
       <div className="favs"  >
-          Favoritos :)
+          <h2>Favoritos</h2>
           <ul>
           {(favorites==="") ? <p>No hay favoritos aún</p>  :
           favorites
